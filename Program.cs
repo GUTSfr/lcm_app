@@ -1,9 +1,7 @@
 var builder = WebApplication.CreateBuilder(args);
 var app = builder.Build();
 
-// REPLACE THIS with your actual email slug, e.g. "john_doe_gmail_com"
-const string emailSlug = "your_email_here";
-
+const string emailSlug = "akmalnomad1501_gmail_com";
 app.MapGet($"/{emailSlug}", (string? x, string? y) =>
 {
     var parsedX = ParseNatural(x);
@@ -21,7 +19,6 @@ app.Run();
 static long? ParseNatural(string? s)
 {
     if (s is null) return null;
-    // Reject floats and scientific notation
     if (s.Contains('.') || s.Contains('e') || s.Contains('E')) return null;
     if (!long.TryParse(s, out long n)) return null;
     if (n < 0) return null;
