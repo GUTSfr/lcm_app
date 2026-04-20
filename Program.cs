@@ -21,7 +21,7 @@ static long? ParseNatural(string? s)
     if (s is null) return null;
     if (s.Contains('.') || s.Contains('e') || s.Contains('E')) return null;
     if (!long.TryParse(s, out long n)) return null;
-    if (n <= 0) return null;
+    if (n < 0) return null;
     return n;
 }
 
